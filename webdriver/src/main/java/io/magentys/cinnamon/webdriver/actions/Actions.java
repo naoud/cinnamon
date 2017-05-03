@@ -86,4 +86,12 @@ public interface Actions {
      * @param target the element to hover over
      */
     void hoverOver(WebElement target);
+
+    /**
+     * Drags one element to another
+     *
+     * @param target the element to drag
+     * @param destination the element to drop the target element at
+     */
+    void dragAndDrop(WebElement target, WebElement destination);
 }

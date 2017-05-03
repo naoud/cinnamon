@@ -225,6 +225,11 @@ public class PageElementFacade implements PageElement, TableElement {
     }
 
     @Override
+    public PageElement dragAndDrop(PageElement destination){
+        return pageElement.dragAndDrop(destination);
+    }
+
+    @Override
     public void doubleClick() {
         pageElement.doubleClick();
     }

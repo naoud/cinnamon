@@ -158,6 +158,12 @@ public class PageElementImpl extends WebElementWrapper implements PageElement {
     }
 
     @Override
+    public PageElement dragAndDrop(PageElement destination) {
+        actions.dragAndDrop(getWrappedElement(), destination.getWrappedElement());
+        return this;
+    }
+
+    @Override
     public void doubleClick() {
         actions.doubleClick(getWrappedElement());
     }
