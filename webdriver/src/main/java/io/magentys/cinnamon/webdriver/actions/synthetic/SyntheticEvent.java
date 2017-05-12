@@ -34,6 +34,12 @@ public class SyntheticEvent {
         js.executeScript("arguments[0].scrollIntoView(arguments[1]);", element, alignWithTop);
     }
 
+    public void dragAndDrap(WebElement draggable, WebElement droppable){
+        js.executeScript("arguments[0].dataTransfer.setData(\"text\", arguments[0].target.id); " +
+                "arguments[1].appendChild(document.getElementById(arguments[0].dataTransfer.getData(\"text\")));",
+                draggable, droppable);
+    }
+
     /**
      * Scrolls the browser to the element x and y position perform the current page.
      * @param element the element to scroll to

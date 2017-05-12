@@ -84,6 +84,12 @@ public interface PageElement extends WebElement, WrapsElement, Locatable, WrapsD
 
     PageElement hoverOver();
 
+
+    /**
+     * Drags one element to another
+     *
+     * @param destination the element to drop the target element at
+     */
     PageElement dragAndDrop(PageElement destination);
 
     void doubleClick();

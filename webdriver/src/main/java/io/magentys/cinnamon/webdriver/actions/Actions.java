@@ -1,10 +1,10 @@
 package io.magentys.cinnamon.webdriver.actions;
 
-import org.openqa.selenium.WebElement;
+import
 
 /**
  * Perform actions on an element
- */
+ */org.openqa.selenium.WebElement;
 public interface Actions {
 
     /**
