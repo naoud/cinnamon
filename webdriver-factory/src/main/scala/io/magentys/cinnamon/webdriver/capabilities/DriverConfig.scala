@@ -48,6 +48,9 @@ object DriverConfig {
 
     //4. merge them all and add remotes if required
     val capabilities: DesiredCapabilities = {
+
+      System.out.println("remoteCaps required :"+remoteCapabilitiesRequired(hubUrl))
+
       if(remoteCapabilitiesRequired(hubUrl))
         basicCaps.merge(extraCaps).merge(remoteCapabilities(browserProfile, finalConfig, hubUrl))
       else
@@ -109,6 +112,10 @@ object DriverConfig {
 
   private[capabilities] def remoteCapabilities(userProfile: String, config:Config, url:String): DesiredCapabilities = {
     val remotersMatched: List[CinnamonRemote] = RemoterDetector.getRemoterMatchesURL(url)
+
+    System.out.println("remotersMatched size :"+remotersMatched.size)
+    System.out.println("remoteMatched :"+remotersMatched.toString())
+
     remotersMatched.size match {
       case 1 => remotersMatched.head.capabilities(userProfile, config)
       case x if x > 1 => throw new Exception("More than one remoter found with url: [" + url + "]")

@@ -12,8 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 import static io.magentys.cinnamon.webdriver.Timeouts.defaultTimeout;
-import static io.magentys.cinnamon.webdriver.conditions.ElementConditions.displayed;
-import static io.magentys.cinnamon.webdriver.conditions.ElementConditions.enabled;
+import static io.magentys.cinnamon.webdriver.conditions.ElementConditions.*;
 
 public abstract class AbstractResultsPage implements ResultsPage {
 
@@ -58,6 +57,8 @@ public abstract class AbstractResultsPage implements ResultsPage {
 
     @Override
     public boolean waitUntilLoaded() {
+
+        searchResult.waitUntil(hidden);
         return searchResult.waitUntil(displayed.and(enabled), defaultTimeout().minusMillis(4000)).isPresent();
     }
 }

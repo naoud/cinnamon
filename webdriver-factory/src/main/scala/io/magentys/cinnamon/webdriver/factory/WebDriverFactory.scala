@@ -30,6 +30,14 @@ class WebDriverFactory(factory: WebDriverManagerFactory) {
 
     // if a hub url has been passed in then ignore WDM and return an instance of remote web driver
     if (hubUrl.isDefined && !hubUrl.get.isEmpty) {
+
+      System.out.println("hubUrl :"+hubUrl);
+      capabilities.setCapability("platformVersion", "9.1")
+      capabilities.setCapability("platformName", "android")
+      capabilities.setCapability("deviceName", "iphone")
+      capabilities.setCapability("app", "C:\\Users\\abranyik\\Documents\\git-repositories\\cinnamon-framework\\demo.ipa")
+    System.out.println("platformName :"+capabilities.getCapability("platformName"))
+
       return new RemoteWebDriver(new URL(hubUrl.get), capabilities)
     }
 
@@ -41,6 +49,14 @@ class WebDriverFactory(factory: WebDriverManagerFactory) {
         case None => Try(factory.driverManagerClass(driverClass.get).setup())
       }
     }
+
+    if (!driverClass.isDefined) {
+      System.out.println("binaryConfig :"+binaryConfig);
+
+
+
+    }
+
 
     factory.webDriver(capabilities)
   }
