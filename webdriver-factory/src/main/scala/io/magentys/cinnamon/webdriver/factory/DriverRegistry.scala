@@ -9,6 +9,7 @@ import scala.util.Try
 object DriverRegistry {
 
   val capabilitiesToDriverProvider = Map(
+    BrowserType.ANDROID -> (DesiredCapabilities.android, "io.appium.java-client.AppiumDriver"),
     BrowserType.CHROME -> (DesiredCapabilities.chrome, "org.openqa.selenium.chrome.ChromeDriver"),
     BrowserType.FIREFOX -> (DesiredCapabilities.firefox, "org.openqa.selenium.firefox.FirefoxDriver"),
     BrowserType.IE -> (DesiredCapabilities.internetExplorer, "org.openqa.selenium.ie.InternetExplorerDriver"),

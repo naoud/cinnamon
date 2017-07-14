@@ -48,11 +48,22 @@ object CinnamonWebDriverConfig {
   }
 
   val hubUrl = Try(config.getString(Keys.HUB_URL)).toOption.getOrElse("")
+  val automationName = Try(config.getString(Keys.AUTOMATION_NAME)).toOption.getOrElse("")
 
-  val driverConfig = {
-    val browserProfile: String = config.getString(Keys.BROWSER_PROFILE)
-    DriverConfig(browserProfile, config, hubUrl, defaultCinnamonConfig) //All user input here makes the config
+//  val driverConfig = {
+//    val browserProfile: String = config.getString(Keys.BROWSER_PROFILE)
+//    DriverConfig(browserProfile, config, hubUrl, defaultCinnamonConfig) //All user input here makes the config
+//  }
+
+
+    val driverConfig = {
+      val browserProfile: String = config.getString(Keys.BROWSER_PROFILE)
+
+      DriverConfig(browserProfile, config, "http://0.0.0.0:4723/wd/hub", defaultCinnamonConfig)
   }
+
+
+
 
   private def listFiles(base: File, recursive: Boolean = true): Seq[File] = {
     val files = base.listFiles

@@ -25,6 +25,11 @@ public class HomeStepDef {
         homePage.open();
     }
 
+    @Given("^it is the first$")
+    public void it_is_the_first() throws Throwable {
+        System.out.println("HIT1");
+    }
+
     @When("^I search for \"(.*?)\"$")
     public void I_search_for_term(final String searchTerm) throws Throwable {
         try {

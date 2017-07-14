@@ -9,6 +9,7 @@ class Appium extends CinnamonRemote {
 
   override def matchesHubUrl(url: String): Boolean = url.contains(":4723/wd/hub")
 
+  //Not working atm
   override def capabilities(browserProfile: String, config: Config): DesiredCapabilities = {
     val mainRemoteCaps: DesiredCapabilities = super.capabilities(browserProfile,config)
 
@@ -21,4 +22,6 @@ class Appium extends CinnamonRemote {
     additionalRemoteCaps.setCapability("app", "C:\\Users\\abranyik\\Documents\\git-repositories\\cinnamon-framework\\demo.ipa")
     mainRemoteCaps.merge(additionalRemoteCaps)
   }
+
+
 }

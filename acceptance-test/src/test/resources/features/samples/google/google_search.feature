@@ -9,12 +9,12 @@ Feature: Google search
     Given I have opened google
     Then I should see the home page
 	
-  @complete @googleexample
+  @complete
   Scenario: Users can perform a search
     When I search for "magentys"
     Then I should see the results page
     And I should see only relevant results
-  
+
   @complete
   Scenario: Perform search without filter
     When I search for ""

@@ -12,5 +12,6 @@ object Keys {
   val BROWSER_PROFILE = "browserProfile"
   val HUB_URL = "hubUrl"
   val WEBDRIVER_CONFIG = "webDriverConfig"
+  val AUTOMATION_NAME = "automationName"
 
 }

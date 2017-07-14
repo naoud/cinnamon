@@ -29,23 +29,23 @@ class WebDriverFactorySpec extends FunSpec with MockitoSugar with Matchers with 
   describe("WebDriverFactory") {
     describe("getDriver()") {
       it("calls WebDriverManager.setup() when no binary config supplied") {
-        webDriverFactory.getDriver(capabilities, Some(""), None)
+        webDriverFactory.getDriver(capabilities, Some(""), Some(""), None)
         verify(browserManagerMock).setup()
       }
 
       it("calls WebDriverManager.setup(arch, version) is binary config supplied") {
         val binaryConfig = DriverBinaryConfig("2.51", Architecture.x32)
-        webDriverFactory.getDriver(capabilities, Some(""), Some(binaryConfig))
+        webDriverFactory.getDriver(capabilities, Some(""), Some(""), Some(binaryConfig))
         verify(browserManagerMock).setup(Architecture.x32, "2.51")
       }
 
       it("calls WebDriverFactory.webDriver()") {
-        webDriverFactory.getDriver(capabilities, Some(""), None)
+        webDriverFactory.getDriver(capabilities, Some(""), Some(""), None)
         verify(factoryMock).webDriver(capabilities)
       }
 
       it("WebDriverManager not used if driver class is unknown") {
-        webDriverFactory.getDriver(mock[DesiredCapabilities], Some(""), None)
+        webDriverFactory.getDriver(mock[DesiredCapabilities], Some(""), Some(""), None)
         verify(factoryMock, never()).driverManagerClass(any())
       }
     }
