@@ -16,7 +16,8 @@ public class DesktopHomePage extends AbstractHomePage {
 
     @Override
     public boolean waitUntilOpened() {
-        return searchButton.waitUntil(displayed.and(textContainsIgnoreCase("Search"))).isPresent();
+//        return searchButton.waitUntil(displayed.and(textContainsIgnoreCase("Search"))).isPresent();
+        return searchButton.waitUntil(displayed) != null;
     }
 
     @Override

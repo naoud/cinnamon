@@ -16,7 +16,8 @@ public abstract class PageProvider {
     //and somehow make it available to the users.
     protected boolean isMobile() {
         String browserName = ((RemoteWebDriver) webDriver).getCapabilities().getBrowserName();
-        String platformName = ((RemoteWebDriver) webDriver).getCapabilities().getPlatform().name();
+//        String platformName = ((RemoteWebDriver) webDriver).getCapabilities().getPlatform().name();
+        String platformName = ((RemoteWebDriver) webDriver).getCapabilities().getCapability("platformName").toString();
         return "ipad".equalsIgnoreCase(browserName) ||
                 "iphone".equalsIgnoreCase(browserName) ||
                 "android".equalsIgnoreCase(browserName) ||

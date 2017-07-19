@@ -9,7 +9,7 @@ Feature: Google search
     Given I have opened google
     Then I should see the home page
 	
-  @complete
+  @complete @googleexample
   Scenario: Users can perform a search
     When I search for "magentys"
     Then I should see the results page

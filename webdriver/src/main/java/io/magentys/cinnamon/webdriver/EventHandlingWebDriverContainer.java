@@ -92,17 +92,13 @@ public class EventHandlingWebDriverContainer implements WebDriverContainer {
         System.out.println("desiredCapabilities :"+driverConfig.desiredCapabilities());
         System.out.println("remoteUrl :"+remoteUrl);
         System.out.println("binaryConfig :"+driverConfig.binaryConfig());
-        System.out.println("binaryConfig :"+driverConfig.binaryConfig());
-
-
 
         driverConfig.desiredCapabilities().setCapability("appiumVersion", "1.6.5");
-        driverConfig.desiredCapabilities().setCapability("deviceName", "Nexus_3");
-        driverConfig.desiredCapabilities().setCapability("platformVersion", "7.0");
+        driverConfig.desiredCapabilities().setCapability("deviceName", "Nexus_1");
+        driverConfig.desiredCapabilities().setCapability("platformVersion", "8.0");
         driverConfig.desiredCapabilities().setCapability("platformName", "Android");
         driverConfig.desiredCapabilities().setCapability("app", "/Users/Attila/Documents/cinnamon-framework/TubeMate-2.4.2.712_cnet.apk");
         driverConfig.desiredCapabilities().setCapability("browserType", "android");
-
 
         return WebDriverFactory.apply().getDriver(driverConfig.desiredCapabilities(), remoteUrl, automationName,  driverConfig.binaryConfig());
     }

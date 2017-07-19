@@ -33,15 +33,7 @@ class WebDriverFactory(factory: WebDriverManagerFactory) {
 
     // if a hub url has been passed in then ignore WDM and return an instance of remote web driver
     if (hubUrl.isDefined && !hubUrl.get.isEmpty && automationName.contains("appium")) {
-
-      //      System.out.println("hubUrl :"+hubUrl);
-      //      capabilities.setCapability("platformVersion", "8.0.0")
-      //      capabilities.setCapability("platformName", "android")
-      //      capabilities.setCapability("deviceName", "Nexus_1")
-      //      capabilities.setCapability("app", "/Users/Attila/Documents/cinnamon-framework/TubeMate-2.4.2.712_cnet.apk")
-      //    System.out.println("platformName :"+capabilities.getCapability("platformName"))
-
-      return new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+      return new AndroidDriver(new URL(hubUrl.get),capabilities);
     }
     if (hubUrl.isDefined && !hubUrl.get.isEmpty && automationName.equals("remote")) {
 
