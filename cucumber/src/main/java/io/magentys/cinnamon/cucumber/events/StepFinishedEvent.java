@@ -3,9 +3,10 @@ package io.magentys.cinnamon.cucumber.events;
 import gherkin.formatter.Reporter;
 import gherkin.formatter.model.Result;
 import io.magentys.cinnamon.events.Attachment;
+import io.magentys.cinnamon.events.TestStepFinishedCucumberEvent;
 import io.magentys.cinnamon.events.TestStepFinishedEvent;
 
-public class StepFinishedEvent implements TestStepFinishedEvent {
+public class StepFinishedEvent implements TestStepFinishedCucumberEvent {
     private final Result result;
     private final Reporter reporter;
 
