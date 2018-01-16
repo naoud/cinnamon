@@ -113,12 +113,6 @@ public class CucumberAspect {
         // pointcut body must be empty
     }
 
-    @Before("runBeforeHooks()")
-    public void beforeRunBeforeHooks(JoinPoint joinPoint) {
-        Set<Tag> tags = (Set<Tag>)joinPoint.getArgs()[1];
-        tags.stream().forEach(a->tagsOfScenario.add(a.getName()));
-    }
-
     @AfterReturning("constructor()")
     public void afterReturningFromConstructor(JoinPoint joinPoint) {
         EventBusContainer.getEventBus().post(new AfterConstructorEvent((WebDriver) joinPoint.getThis(),
@@ -154,9 +148,16 @@ public class CucumberAspect {
         CucumberAspect.results.set(new ArrayList<>());
     }
 
+    @Before("runBeforeHooks()")
+    public void beforeRunBeforeHooks(JoinPoint joinPoint) {
+        Set<Tag> tags = (Set<Tag>)joinPoint.getArgs()[1];
+        tags.stream().forEach(a->tagsOfScenario.add(a.getName()));
+        EventBusContainer.getEventBus().post(new BeforeHooksRunEvent("Before Hook"));
+    }
+
     @After("addHookToCounterAndResult() && args(result,..)")
     public void afterAddHookToCounterAndResult(Result result) {
-        EventBusContainer.getEventBus().post(new BeforeHooksFinishedEvent(result, result.getErrorMessage(),
+        EventBusContainer.getEventBus().post(new AfterHooksFinishedEvent(result, result.getErrorMessage(),
                 result.getError()));
     }
 
@@ -169,7 +170,7 @@ public class CucumberAspect {
 
     @After("runAfterHooks()")
     public void afterRunAfterHooks() {
-        EventBusContainer.getEventBus().post(new AfterHooksFinishedEvent());
+//        EventBusContainer.getEventBus().post(new AfterHooksFinishedEvent());
     }
 
     @After("disposeBackendWorlds()")
