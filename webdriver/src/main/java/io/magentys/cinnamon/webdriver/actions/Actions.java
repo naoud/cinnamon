@@ -86,4 +86,11 @@ public interface Actions {
      * @param target the element to hover over
      */
     void hoverOver(WebElement target);
+
+    /**
+     * Appium function - double taps the given target element
+     *
+     * @param target
+     */
+    void doubleTap(WebElement target);
 }

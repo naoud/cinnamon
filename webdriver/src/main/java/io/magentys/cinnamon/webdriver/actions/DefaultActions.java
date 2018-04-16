@@ -10,6 +10,7 @@ import static io.magentys.cinnamon.webdriver.actions.basic.ClearAction.clearActi
 import static io.magentys.cinnamon.webdriver.actions.basic.ClickAction.clickAction;
 import static io.magentys.cinnamon.webdriver.actions.basic.DeleteContentAction.deleteContentAction;
 import static io.magentys.cinnamon.webdriver.actions.basic.DoubleClickAction.doubleClickAction;
+import static io.magentys.cinnamon.webdriver.actions.basic.DoubleTapAction.doubleTapAction;
 import static io.magentys.cinnamon.webdriver.actions.basic.HoverAction.hoverAction;
 import static io.magentys.cinnamon.webdriver.actions.basic.ReplaceTextAction.replaceTextAction;
 import static io.magentys.cinnamon.webdriver.actions.basic.ScrollIntoViewAction.scrollIntoViewAction;
@@ -77,4 +78,10 @@ class DefaultActions implements Actions {
     public void hoverOver(final WebElement target) {
         hoverAction(webDriver).perform(target);
     }
+
+    @Override
+    public void doubleTap(final WebElement target) {
+        doubleTapAction(webDriver).perform(target);
+    }
+
 }

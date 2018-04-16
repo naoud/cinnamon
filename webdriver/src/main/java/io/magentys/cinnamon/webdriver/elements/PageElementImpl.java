@@ -171,4 +171,10 @@ public class PageElementImpl extends WebElementWrapper implements PageElement {
     public String text() {
         return getText();
     }
+
+    @Override
+    public void doubleTap() {
+        actions.doubleTap(getWrappedElement());
+    }
+
 }

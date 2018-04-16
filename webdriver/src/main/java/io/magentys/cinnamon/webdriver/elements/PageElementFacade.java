@@ -263,4 +263,10 @@ public class PageElementFacade implements PageElement, TableElement {
     public MatchingCell firstMatch(final CellAdapter<Boolean> matcher) throws NoSuchElementException {
         return tableElement.firstMatch(matcher);
     }
+
+    @Override
+    public void doubleTap() {
+        pageElement.doubleTap();
+    }
+
 }
