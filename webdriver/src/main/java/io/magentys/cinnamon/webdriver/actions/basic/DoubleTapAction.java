@@ -1,6 +1,8 @@
 package io.magentys.cinnamon.webdriver.actions.basic;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.TapOptions;
 import io.magentys.cinnamon.webdriver.Browser;
 import io.magentys.cinnamon.webdriver.actions.Action;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +22,9 @@ public class DoubleTapAction implements Action {
 
     @Override
     public void perform(final WebElement target) {
-        driver.tap(1, target, 1);
-        driver.tap(1, target, 1);
+        new TouchAction(driver).tap(TapOptions.tapOptions()).tap(TapOptions.tapOptions());
+
+//        driver.tap(1, target, 1);
+//        driver.tap(1, target, 1);
     }
 }
