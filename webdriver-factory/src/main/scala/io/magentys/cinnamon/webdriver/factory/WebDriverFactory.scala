@@ -1,5 +1,6 @@
 package io.magentys.cinnamon.webdriver.factory
 
+import java.net.URL
 import java.nio.file.{Files, Paths}
 
 import io.github.bonigarcia.wdm.{BrowserManager, WebDriverManager}
@@ -28,7 +29,11 @@ class WebDriverFactory(factory: WebDriverManagerFactory) {
   def getDriver(capabilities: DesiredCapabilities, hubUrl: Option[String], exePath: Option[String], driverBinary: Option[DriverBinary]): WebDriver = {
 
     if (hubUrl.isDefined && !hubUrl.get.isEmpty) {
-      return RemoteWebDriverFactory.getRemoteDriver(capabilities, hubUrl)
+      val remoteDriverClass = DriverRegistry.getRemoteDriverClass(capabilities) match {
+        case Some(clazz) => clazz
+        case None => throw new Exception("Cannot find the remote driver class in the driver registry.")
+      }
+      return remoteDriverClass.getDeclaredConstructor(classOf[URL], classOf[Capabilities]).newInstance(new URL(hubUrl.get), capabilities)
     }
 
     val driverClass = DriverRegistry.getDriverClass(capabilities) match {
@@ -47,6 +52,7 @@ class WebDriverFactory(factory: WebDriverManagerFactory) {
     }
     driverClass.getDeclaredConstructor(classOf[Capabilities]).newInstance(capabilities)
   }
+
 }
 
 object WebDriverFactory {
