@@ -93,4 +93,13 @@ public interface Actions {
      * @param target
      */
     void doubleTap(WebElement target);
+
+    /**
+     * Appium function - long press gesture on the given element or on the screen
+     *
+     * @param target
+     * @param duration
+     */
+    void touchAndHold(WebElement target, int duration);
+
 }

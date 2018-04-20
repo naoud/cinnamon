@@ -177,4 +177,9 @@ public class PageElementImpl extends WebElementWrapper implements PageElement {
         actions.doubleTap(getWrappedElement());
     }
 
+    @Override
+    public void touchAndHold(int duration) {
+        actions.touchAndHold(getWrappedElement(), duration);
+    }
+
 }

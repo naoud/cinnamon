@@ -14,6 +14,7 @@ import static io.magentys.cinnamon.webdriver.actions.basic.DoubleTapAction.doubl
 import static io.magentys.cinnamon.webdriver.actions.basic.HoverAction.hoverAction;
 import static io.magentys.cinnamon.webdriver.actions.basic.ReplaceTextAction.replaceTextAction;
 import static io.magentys.cinnamon.webdriver.actions.basic.ScrollIntoViewAction.scrollIntoViewAction;
+import static io.magentys.cinnamon.webdriver.actions.basic.TouchAndHoldAction.touchAndHoldAction;
 import static io.magentys.cinnamon.webdriver.actions.basic.TypeTextAction.typeTextAction;
 
 class DefaultActions implements Actions {
@@ -82,6 +83,11 @@ class DefaultActions implements Actions {
     @Override
     public void doubleTap(final WebElement target) {
         doubleTapAction(webDriver).perform(target);
+    }
+
+    @Override
+    public void touchAndHold(final WebElement target, int duration) {
+        touchAndHoldAction(webDriver).perform(target);
     }
 
 }

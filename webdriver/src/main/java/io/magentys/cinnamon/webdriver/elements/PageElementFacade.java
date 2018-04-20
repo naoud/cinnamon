@@ -269,4 +269,9 @@ public class PageElementFacade implements PageElement, TableElement {
         pageElement.doubleTap();
     }
 
+    @Override
+    public void touchAndHold(int duration) {
+        pageElement.touchAndHold(duration);
+    }
+
 }
