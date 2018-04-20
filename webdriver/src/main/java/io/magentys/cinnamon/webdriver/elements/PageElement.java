@@ -88,6 +88,8 @@ public interface PageElement extends WebElement, WrapsElement, Locatable, WrapsD
 
     String text();
 
+    void tap();
+
     void doubleTap();
 
     void touchAndHold(int duration);

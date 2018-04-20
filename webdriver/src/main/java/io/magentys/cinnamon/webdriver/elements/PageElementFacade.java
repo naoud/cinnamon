@@ -265,6 +265,11 @@ public class PageElementFacade implements PageElement, TableElement {
     }
 
     @Override
+    public void tap() {
+        pageElement.tap();
+    }
+
+    @Override
     public void doubleTap() {
         pageElement.doubleTap();
     }

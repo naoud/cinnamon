@@ -87,6 +87,14 @@ public interface Actions {
      */
     void hoverOver(WebElement target);
 
+    //todo coords
+    /**
+     * Appium function - taps the element
+     *
+     * @param target the element to tap
+     */
+    void tap(WebElement target);
+
     /**
      * Appium function - double taps the given target element
      *

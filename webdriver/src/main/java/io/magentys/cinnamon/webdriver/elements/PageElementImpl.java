@@ -173,6 +173,11 @@ public class PageElementImpl extends WebElementWrapper implements PageElement {
     }
 
     @Override
+    public void tap() {
+        actions.tap(getWrappedElement());
+    }
+
+    @Override
     public void doubleTap() {
         actions.doubleTap(getWrappedElement());
     }
