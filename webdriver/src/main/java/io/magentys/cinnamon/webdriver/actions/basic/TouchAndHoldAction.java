@@ -26,6 +26,6 @@ public class TouchAndHoldAction implements DurationAction
 
     @Override
     public void perform(WebElement target) {
-        new TouchAction(driver).longPress(target, 5000).perform();
+        perform(target, 5000);
     }
 }
