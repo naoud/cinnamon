@@ -35,7 +35,7 @@ class DriverRegistrySpec extends FlatSpec with Matchers {
 
   it should "return an driver class for Appium AndroidDriver given platformName matches Android" in {
     val capabilities = new DesiredCapabilities(new java.util.HashMap[String, Any] {
-      put(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID)
+      put(MobileCapabilityType.AUTOMATION_NAME, MobilePlatform.ANDROID)
     })
     val driverClass = DriverRegistry.getDriverClass(capabilities)
     driverClass shouldBe Some(classOf[io.appium.java_client.android.AndroidDriver[_]])
@@ -43,7 +43,7 @@ class DriverRegistrySpec extends FlatSpec with Matchers {
 
   it should "return a driver class for Appium IOSDriver given platformName matches iOS" in {
     val capabilities = new DesiredCapabilities(new java.util.HashMap[String, Any] {
-      put(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.IOS)
+      put(MobileCapabilityType.AUTOMATION_NAME, MobilePlatform.IOS)
     })
     val driverClass = DriverRegistry.getDriverClass(capabilities)
     driverClass shouldBe Some(classOf[io.appium.java_client.ios.IOSDriver[_]])
@@ -59,7 +59,7 @@ class DriverRegistrySpec extends FlatSpec with Matchers {
 
   it should "return a remote driver class for Appium AndroidDriver given platformName matches Android" in {
     val capabilities = new DesiredCapabilities(new java.util.HashMap[String, Any] {
-      put(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID)
+      put(MobileCapabilityType.AUTOMATION_NAME, MobilePlatform.ANDROID)
     })
     val remoteDriverClass = DriverRegistry.getDriverClass(capabilities)
     remoteDriverClass shouldBe Some(classOf[io.appium.java_client.android.AndroidDriver[_]])
@@ -67,7 +67,7 @@ class DriverRegistrySpec extends FlatSpec with Matchers {
 
   it should "return a remote driver class for Appium IOSDriver given platformName matches iOS" in {
     val capabilities = new DesiredCapabilities(new java.util.HashMap[String, Any] {
-      put(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.IOS)
+      put(MobileCapabilityType.AUTOMATION_NAME, MobilePlatform.IOS)
     })
     val remoteDriverClass = DriverRegistry.getDriverClass(capabilities)
     remoteDriverClass shouldBe Some(classOf[io.appium.java_client.ios.IOSDriver[_]])

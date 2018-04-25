@@ -173,18 +173,21 @@ public class PageElementImpl extends WebElementWrapper implements PageElement {
     }
 
     @Override
-    public void tap() {
-        actions.tap(getWrappedElement());
+    public PageElement tap() {
+         actions.tap(getWrappedElement());
+         return this;
     }
 
     @Override
-    public void doubleTap() {
+    public PageElement doubleTap() {
         actions.doubleTap(getWrappedElement());
+        return this;
     }
 
     @Override
-    public void touchAndHold(int duration) {
+    public PageElement touchAndHold(int duration) {
         actions.touchAndHold(getWrappedElement(), duration);
+        return this;
     }
 
 }

@@ -88,11 +88,11 @@ public interface PageElement extends WebElement, WrapsElement, Locatable, WrapsD
 
     String text();
 
-    void tap();
+    PageElement tap();
 
-    void doubleTap();
+    PageElement doubleTap();
 
-    void touchAndHold(int duration);
+    PageElement touchAndHold(int duration);
 
     static PageElement makeElement(final ElementLocator elementLocator, final WebElement element) {
         final PageElement pageElement = new PageElementImpl(elementLocator.getWebDriver(), elementLocator, element);

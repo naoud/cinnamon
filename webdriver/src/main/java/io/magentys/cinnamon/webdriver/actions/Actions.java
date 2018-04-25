@@ -87,7 +87,6 @@ public interface Actions {
      */
     void hoverOver(WebElement target);
 
-    //todo coords
     /**
      * Appium function - taps the element
      *

@@ -40,13 +40,13 @@ object DriverRegistry {
       put(CapabilityType.BROWSER_NAME, BrowserType.HTMLUNIT)
     },
     "io.appium.java_client.android.AndroidDriver" -> new util.HashMap[String, Any] {
-      put(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID)
+      put(MobileCapabilityType.AUTOMATION_NAME, MobilePlatform.ANDROID)
     },
     "io.appium.java_client.ios.IOSDriver" -> new util.HashMap[String, Any] {
-      put(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.IOS)
+      put(MobileCapabilityType.AUTOMATION_NAME, MobilePlatform.IOS)
     },
     "io.appium.java_client.windows.WindowsDriver" -> new util.HashMap[String, Any]() {
-      put(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.WINDOWS)
+      put(MobileCapabilityType.AUTOMATION_NAME, MobilePlatform.WINDOWS)
     }
   )
 
