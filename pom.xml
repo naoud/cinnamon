@@ -16,7 +16,7 @@
         <aspectj.version>1.8.7</aspectj.version>
         <guice.version>4.0</guice.version>
         <cucumber.jvm.version>1.2.4</cucumber.jvm.version>
-        <selenium.version>3.4.0</selenium.version>
+        <selenium.version>3.11.0</selenium.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.build.timestamp.format>yyyy-MM-dd-HHmm</maven.build.timestamp.format>
@@ -328,7 +328,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>21.0</version>
+                <version>23.0</version>
             </dependency>
 
             <dependency>
